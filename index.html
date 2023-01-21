@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+    
+     <!-- end about -->
+     
+         <nav>
+             <div class="menu">
+                 <p class="website_name"><img src="nova-logo2.png" width="100px"></p>
+                 <div class="menu_links">
+                     <a href="index.html" class="link">Home</a>
+                     <a href="about/about.html" class="link">about</a>
+                     <a href="contact/contact.html" class="link">contacts</a>
+                 </div>
+                 <div class="menu_icon">
+                     <span class="icon"></span>
+                 </div>
+             </div>
+         </nav>
+     
+         <section class="wrapper">
+     
+             <div class="container">
+     
+                 <div id="scene" class="scene" data-hover-only="false">
+     
+     
+                     <div class="circle" data-depth="1.2"></div>
+     
+                     <div class="one" data-depth="0.9">
+                         <div class="content">
+                             <span class="piece"></span>
+                             <span class="piece"></span>
+                             <span class="piece"></span>
+                         </div>
+                     </div>
+     
+                     <div class="two" data-depth="0.60">
+                         <div class="content">
+                             <span class="piece"></span>
+                             <span class="piece"></span>
+                             <span class="piece"></span>
+                         </div>
+                     </div>
+     
+                     <div class="three" data-depth="0.40">
+                         <div class="content">
+                             <span class="piece"></span>
+                             <span class="piece"></span>
+                             <span class="piece"></span>
+                         </div>
+                     </div>
+     
+                     <p class="p404" data-depth="0.50">NovaCV</p>
+                     <p class="p404" data-depth="0.10">NovaCV</p>
+     
+                 </div>
+     
+                 <div class="text">
+                     <article>
+                         <p>Create your Resume with us,<br> efficiently and effectively. <br></p>
+                         <button id="google-login">lets go!</button>
+                     </article>
+                 </div>
+     
+             </div>
+         </section>
+         <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
+            import { getAuth,signInWithPopup,GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-auth.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+        
+            // Your web app's Firebase configuration
+            const firebaseConfig = {
+              apiKey: "AIzaSyBvjDjHSpOgroSA3L865I7M3CVXtZ39B3g",
+              authDomain: "resume-creater-20d42.firebaseapp.com",
+              projectId: "resume-creater-20d42",
+              storageBucket: "resume-creater-20d42.appspot.com",
+              messagingSenderId: "584245225976",
+              appId: "1:584245225976:web:4f86e2a05e088f72d40e0d",
+            };
+        
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
+            const provider = new GoogleAuthProvider(app);
+        
+            const login = document.getElementById("google-login");
+            login.addEventListener("click", () => {
+              signInWithPopup(auth, provider)
+                .then((result) => {
+                  // This gives you a Google Access Token. You can use it to access the Google API.
+                  const credential = GoogleAuthProvider.credentialFromResult(result);
+                  const token = credential.accessToken;
+                  // The signed-in user info.
+                  const user = result.user;
+                  window.location.replace("create.html");
+                  // ...
+                })
+                .catch((error) => {
+                  // Handle Errors here.
+                  const errorCode = error.code;
+                  const errorMessage = error.message;
+                  // The email of the user's account used.
+                  const email = error.customData.email;
+                  // The AuthCredential type that was used.
+                  const credential = GoogleAuthProvider.credentialFromError(error);
+                  // ...
+                });
+            });
+        
+          </script>
+
+</body>
+</html>

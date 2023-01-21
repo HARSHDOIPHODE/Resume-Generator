@@ -1,0 +1,76 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans",sans-serif;
+  box-sizing: border-box;
+}
+
+body{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #19071d;
+}
+
+h1{
+  color: rgb(195, 116, 240);
+}
+
+.about-section{
+  background: url(/liquid-purple-art-painting-abstract-colorful-background-with-color-splash-paints-modern-art_1258-97771.webp) no-repeat left;
+  background-size: 100%;
+  background-color: #1f0c2c;
+  overflow: hidden;
+  padding: 100px 0;
+}
+
+.inner-container{
+  width: 55%;
+  float: right;
+  opacity: 0.9;
+  background-color: #331337;
+  padding: 150px;
+  border-radius: 1%;
+}
+
+.inner-container h1{
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.text{
+  font-size: 13px;
+  color: #b5acacd9;
+  line-height: 30px;
+  text-align: justify;
+  margin-bottom: 40px;
+}
+
+
+
+@media screen and (max-width:1200px){
+  .inner-container{
+      padding: 80px;
+  }
+}
+
+@media screen and (max-width:1000px){
+  .about-section{
+      background-size: 100%;
+      padding: 100px 40px;
+  }
+  .inner-container{
+      width: 100%;
+  }
+}
+
+@media screen and (max-width:600px){
+  .about-section{
+      padding: 0;
+  }
+  .inner-container{
+      padding: 60px;
+  }
+}
